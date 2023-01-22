@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/gbutton.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>TownSquare</title>
+</head>
+
+<body>
+    <!-- <div class="logo">
+        <img src="../img/ts-logo-3.png" alt="TownSquare logo">
+    </div> -->
+    <div id="loader"></div>
+    <div id="content">
+        <div class="container-fluid ">
+            <div class="card card0 border-0">
+                <div class="row d-flex img-card">
+                    <div class="col-lg-6">
+                        <div class="card1 pb-5">
+                            <div class="row px-3 justify-content-center mt-4 mb-5">
+                                <img src="../img/town.png" class="image" width="90vw">
+                            </div>
+                            <div class="row px-3 justify-content-center mt-4 mb-5">
+                                <img src="../img/ts-name-1.png" class="img-name">
+                            </div>
+                            <div class="row px-3 justify-content-center mt-4 mb-5">
+                                <button type="button" class="login-with-google-btn">
+                                    Sign in with Google
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row gbutton">
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <button type="button" class="login-with-google-btn">
+                            Sign in with Google
+                        </button>
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        var preloader = document.getElementById('loader');
+        // stop preloader after once
+        function preLoaderHandler() {
+            preloader.style.display = 'none';
+        }
+        setTimeout(preLoaderHandler, 0000);
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
