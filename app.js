@@ -16,6 +16,7 @@ const bodyParser = require('body-parser');
 // };
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 app.use(cookieParser());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
@@ -28,10 +29,16 @@ app.post('/api/user/update', (req, res) => {
 })
 
 app.get('/api/user/data', (req, res) => {
-    
+
 })
 
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/home.html'));
+});
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/login.html'));
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/index.html'));
