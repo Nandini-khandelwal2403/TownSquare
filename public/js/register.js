@@ -16,10 +16,8 @@
 // })
 
 function register() {
-    let firstName = document.querySelector('.first-name').value;
-    let lastName = document.querySelector('.last-name').value;
-    // let mobile = document.getElementById('mobile').value;
-    // let email = document.getElementById('email').value;
+    let name = document.querySelector('.name').value;
+    let number = document.querySelector('.number').value;
     let address = document.querySelector('.address').value;
     let genderOp = document.getElementsByName('inlineRadioOptions');  
     let genderValue;
@@ -29,7 +27,6 @@ function register() {
         }
     }
     let pincode = document.querySelector('.pincode').value;
-    // let password = document.getElementById('password').value;
-    console.log(firstName, lastName, address, genderValue, pincode)
-    // send(firstName, lastName, address, genderValue, pincode);
+    console.log(name, number, address, genderValue, pincode)
+    firebase.send(name, number, address, genderValue, pincode);
 }

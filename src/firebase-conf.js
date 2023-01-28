@@ -1,19 +1,21 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyCoKflnKUeakGzmvVoxA0_ShbOcAaIOroc",
     authDomain: "townsquare-e2578.firebaseapp.com",
+    databaseURL: "https://townsquare-e2578-default-rtdb.firebaseio.com",
     projectId: "townsquare-e2578",
-    databaseURL: 'YOUR-DATABASE-URL',
     storageBucket: "townsquare-e2578.appspot.com",
     messagingSenderId: "719408904853",
     appId: "1:719408904853:web:9da4b5f7fb3bcf77ee399c"
-};
+  };
 const app = initializeApp(firebaseConfig);
 
 // let formMessage = firebase.database().ref('register');
 
 const auth = getAuth(app);
+
 
 const provider = new GoogleAuthProvider();
 
@@ -71,17 +73,24 @@ export const googleSignOut = () => {
     });
 }
 
+const db = getFirestore(app);
+
 // send registration data to firestore database
-// export const send = (firstName, lastName, address, genderValue, pincode) => {
-//     const db = getFirestore(app);
-//     const docRef = doc(db, "users", "alovelace");
-//     setDoc(docRef, {
-//         first: firstName,
-//         last: lastName,
-//         born: 1815
-//     }).then(() => {
-//         console.log("Document written with ID: ", docRef.id);
-//     }).catch((error) => {
-//         console.error("Error adding document: ", error);
-//     });
-// }
+
+export const send = (name, number, address, genderValue, pincode) => {
+    const docRef = doc(db, "users", user.uid);
+    setDoc(docRef, {
+        name: name,
+        number: number,
+        address: address,
+        gender: genderValue,
+        pincode: pincode,
+        email: user.email,
+        uid: user.uid,
+        photoURL: user.photoURL
+    }).then(() => {
+        console.log("Document written with ID: ", docRef.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
