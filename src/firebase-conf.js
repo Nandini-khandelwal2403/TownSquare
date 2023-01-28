@@ -4,11 +4,14 @@ const firebaseConfig = {
     apiKey: "AIzaSyCoKflnKUeakGzmvVoxA0_ShbOcAaIOroc",
     authDomain: "townsquare-e2578.firebaseapp.com",
     projectId: "townsquare-e2578",
+    databaseURL: 'YOUR-DATABASE-URL',
     storageBucket: "townsquare-e2578.appspot.com",
     messagingSenderId: "719408904853",
     appId: "1:719408904853:web:9da4b5f7fb3bcf77ee399c"
 };
 const app = initializeApp(firebaseConfig);
+
+// let formMessage = firebase.database().ref('register');
 
 const auth = getAuth(app);
 
@@ -67,3 +70,18 @@ export const googleSignOut = () => {
         console.log(error);
     });
 }
+
+// send registration data to firestore database
+// export const send = (firstName, lastName, address, genderValue, pincode) => {
+//     const db = getFirestore(app);
+//     const docRef = doc(db, "users", "alovelace");
+//     setDoc(docRef, {
+//         first: firstName,
+//         last: lastName,
+//         born: 1815
+//     }).then(() => {
+//         console.log("Document written with ID: ", docRef.id);
+//     }).catch((error) => {
+//         console.error("Error adding document: ", error);
+//     });
+// }
