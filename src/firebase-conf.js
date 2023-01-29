@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyCoKflnKUeakGzmvVoxA0_ShbOcAaIOroc",
     authDomain: "townsquare-e2578.firebaseapp.com",
@@ -9,7 +9,7 @@ const firebaseConfig = {
     storageBucket: "townsquare-e2578.appspot.com",
     messagingSenderId: "719408904853",
     appId: "1:719408904853:web:9da4b5f7fb3bcf77ee399c"
-  };
+};
 const app = initializeApp(firebaseConfig);
 
 // let formMessage = firebase.database().ref('register');
@@ -42,15 +42,19 @@ export const googleSignIn = () => {
         });
 }
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async(user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log(user);
         window.user = user;
-        if (window.location.pathname !== '/home') {
+        if (window.location.pathname !== '/home' && await isUserRegistered()) {
             window.location.href = '/home';
+            console.log('user is registered');
+        } else if (window.location.pathname !== '/register' && !(await isUserRegistered())) {
+            window.location.href = '/register';
+            console.log('user is not registered');
         }
 
         // ...
@@ -92,5 +96,47 @@ export const send = (name, number, address, genderValue, pincode) => {
         console.log("Document written with ID: ", docRef.id);
     }).catch((error) => {
         console.error("Error adding document: ", error);
+    });
+}
+
+// get user data from firestore database
+
+export const getUserData = () => {
+    return new Promise((resolve, reject) => {
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef).then((doc) => {
+            if (doc.exists()) {
+                // console.log("Document data:", doc.data());
+                resolve(doc.data());
+            } else {
+                // doc.data() will be undefined in this case
+                // console.log("No such document!");
+                resolve(null);
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+            reject(error);
+        });
+    });
+}
+
+// check if user is registered or not
+
+export const isUserRegistered = () => {
+    return new Promise((resolve, reject) => {
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef).then((doc) => {
+            if (doc.exists()) {
+                console.log("Document data:", doc.data());
+                resolve(true);
+            } else {
+                // doc.data() will be undefined in this case
+                // console.log("No such document!");
+                resolve(false);
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+            reject(error);
+        });
     });
 }

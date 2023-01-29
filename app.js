@@ -32,6 +32,10 @@ app.get('/api/user/data', (req, res) => {
 
 })
 
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/register.html'));
+});
+
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/home.html'));
 });
