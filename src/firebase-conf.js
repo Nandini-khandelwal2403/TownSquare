@@ -49,7 +49,7 @@ onAuthStateChanged(auth, async(user) => {
         const uid = user.uid;
         console.log(user);
         window.user = user;
-        if (window.location.pathname !== '/home' && await isUserRegistered()) {
+        if ((window.location.pathname == '/register' || window.location.pathname == '/login') && await isUserRegistered()) {
             window.location.href = '/home';
             console.log('user is registered');
         } else if (window.location.pathname !== '/register' && !(await isUserRegistered())) {
