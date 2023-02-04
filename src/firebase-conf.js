@@ -99,6 +99,23 @@ export const send = (name, number, address, genderValue, pincode) => {
     });
 }
 
+// send items details to firestore database
+
+export const sendItems = (name, description, expiry, quantity, image) => {
+    const docRef = doc(db, "items", user.uid);
+    setDoc(docRef, {
+        name: name,
+        description: description,
+        expiry: expiry,
+        quantity: quantity,
+        image: image
+    }).then(() => {
+        console.log("Document written with ID: ", docRef.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
 // get user data from firestore database
 
 export const getUserData = () => {

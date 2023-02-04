@@ -1,20 +1,3 @@
-// let obj = {name: "nandini", mobile: "123456789", email: "nandini@gmail.com", address: "jindal", userid: "iamGreat"}
-
-// const { sendEmailVerification } = require("firebase/auth");
-
-// axios({
-//     method: 'post',
-//     url: location.protocol + '//' + location.host + '/api/user/update',
-//     data: obj
-// }).then((res) => {
-//     console.log("request submitted");
-// })
-
-// axios({
-//     method: 'get',
-//     url: location.protocol + '//' + location.host + '/api/user/data/:userid',
-// })
-
 function register() {
     let name = document.querySelector('.name').value;
     let number = document.querySelector('.number').value;
