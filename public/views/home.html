@@ -5,13 +5,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
     <title>TownSquare</title>
 </head>
 
 <body>
-    <h1>TownSquare Home Page</h1>
+    <section class="sidebar" id="sidebar">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidemenu">
+            <div class="d-flex justify-content-between">
+                <div style="float: left;">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                        <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                    </a>
+                </div>
+                <button class="navbar-toggler toggle-icon-close" type="button" onclick="closeNav()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- <a href="javascript:void(0)" class="closebtn mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" onclick="closeNav()" style="float: right; font-size: 2rem; margin-top: -0.5rem;">&times;</a> -->
+            </div>
+            <hr>
+            <div class="d-flex flex-column align-items-center flex-shrink-0">
+                <div class="img-crop">
+                    <img src="../img/town.png" class="profile-pic">
+                </div>
+                <div class="profile-name">Gregory House</div>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Daily Items
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Imp Personnel
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Food for all
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Vocal for Local
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Settings
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+    <main id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none">
+                            <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                            <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                        </a>
+                        <button class="navbar-toggler toggle-icon" type="button" onclick="openNav()">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <div class="row title">
+                <div class="col-md-12">
+                    <h3 class="text-center">
+                        Portals
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div>
+                            <img src="../img/town.png" alt="" class="card-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div>
+                            <img src="../img/town.png" alt="" class="card-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div>
+                            <img src="../img/town.png" alt="" class="card-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="card bg-default">
+                        <div>
+                            <img src="../img/town.png" alt="" class="card-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="/dist/bundle.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> -->
+    <script>
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("sidebar").style.width = "100vw";
+            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "100vw";
+        }
+
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
 </body>
 
 </html>
