@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { uuidv4 } from "@firebase/util";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCoKflnKUeakGzmvVoxA0_ShbOcAaIOroc",
     authDomain: "townsquare-e2578.firebaseapp.com",
@@ -8,15 +11,14 @@ const firebaseConfig = {
     projectId: "townsquare-e2578",
     storageBucket: "townsquare-e2578.appspot.com",
     messagingSenderId: "719408904853",
-    appId: "1:719408904853:web:9da4b5f7fb3bcf77ee399c"
+    appId: "1:719408904853:web:9da4b5f7fb3bcf77ee399c",
 };
 const app = initializeApp(firebaseConfig);
 
 // let formMessage = firebase.database().ref('register');
-
+const storage = getStorage(app);
+const storageRef = ref(storage);
 const auth = getAuth(app);
-
-
 const provider = new GoogleAuthProvider();
 
 export const googleSignIn = () => {
@@ -102,15 +104,15 @@ export const send = (name, number, address, genderValue, pincode) => {
 // send items details to firestore database
 
 export const sendItems = (name, description, expiry, quantity, image) => {
-    const docRef = doc(db, "items", user.uid);
-    setDoc(docRef, {
+    const docRef = collection(db, "items");
+    addDoc(docRef, {
         name: name,
         description: description,
         expiry: expiry,
         quantity: quantity,
         image: image
-    }).then(() => {
-        console.log("Document written with ID: ", docRef.id);
+    }).then((item) => {
+        console.log("Document written with ID: ", item.id);   // refer documentation....tab hi roton jaisa soch paaoge
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
@@ -133,6 +135,38 @@ export const getUserData = () => {
         }).catch((error) => {
             console.log("Error getting document:", error);
             reject(error);
+        });
+    });
+}
+
+// upload image to firebase storage
+
+export const uploadImage = (file) => {
+    return new Promise((resolve, reject) => {
+        const metadata = {
+            contentType: file.type
+        };
+        const uuid = uuidv4();
+        const imageref = ref(storage, 'images/' + uuid);
+        const uploadTask = uploadBytesResumable(imageref, file, metadata);
+        uploadTask.on('state_changed', (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+                case 'paused':
+                    console.log('Upload is paused');
+                    break;
+                case 'running':
+                    console.log('Upload is running');
+                    break;
+            }
+        }, (error) => {
+            reject(error);
+        }, () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                resolve(downloadURL);
+            });
         });
     });
 }
