@@ -40,6 +40,10 @@ app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/home.html'));
 });
 
+app.get('/shareportal', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/shareportal.html'));
+});
+
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/login.html'));
 });
