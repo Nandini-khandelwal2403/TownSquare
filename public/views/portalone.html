@@ -32,7 +32,7 @@
         <input class="item-exp" type="date" id="Exp-date" name="Exp-date">
         <label for="quantity">Quantity:</label><br>
         <input class="item-quan" type="text" id="quantity" name="quantity"><br>
-        <!-- code to take file input from device -->
+         code to take file input from device -->
         <!-- <label for="file">Image:</label><br>
         <input class="item-img" type="file" id="file" name="file"><br>
         <input type="submit" value="Submit" onclick="itemDetail()"> -->
@@ -95,7 +95,7 @@
                     <label for="date" class="col-sm-1 col-form-label Exp-date ">ExpiryDate</label>
                     <div class="col-md-4">
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control item-exp">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white">
                                     <i class="fa fa-calendar"></i>
@@ -116,13 +116,13 @@
         </script>
 
       <div class="col-md-6">
-        <label for="lastName" class="form-label item-quan">Quantity</label>
-        <input type="text" class="form-control" id="lastName" required>
+        <label for="lastName" class="form-label">Quantity</label>
+        <input type="text" class="form-control item-quan" id="lastName" required>
       </div>
       
 
-      <label class="form-label item-img" for="customFile">Default file input example</label>
-          <input type="file" class="form-control" id="customFile" />
+      <label class="form-label" for="customFile">Default file input example</label>
+        <input type="file" class="form-control item-img" id="customFile" />
       
       <div class="col-md-12">
         <button type="submit" onclick="itemDetail()" class="btn btn-primary">Submit</button>
