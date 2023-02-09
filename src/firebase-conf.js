@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { uuidv4 } from "@firebase/util";
 
@@ -187,6 +187,25 @@ export const isUserRegistered = () => {
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
+            reject(error);
+        });
+    });
+}
+
+// get all items from firestore database
+
+export const getItems = () => {
+
+    return new Promise((resolve, reject) => {
+        const docRef = collection(db, "items");
+        getDocs(docRef).then((querySnapshot) => {
+            let items = [];
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data());
+            });
+            resolve(items);
+        }).catch((error) => {
+            console.log("Error getting documents: ", error);
             reject(error);
         });
     });
