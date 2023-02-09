@@ -35,3 +35,9 @@ window.onload = () => {
 
 
 }
+
+//form js code
+
+$(function(){
+    $('#datepicker').datepicker();
+  });

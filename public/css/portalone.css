@@ -16,3 +16,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/*form code*/
+
+.input-group-append {
+    cursor: pointer;
+  }
