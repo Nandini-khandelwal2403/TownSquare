@@ -6,72 +6,173 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/shareportal.css">
 
 </head>
 
 <body>
 
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+    <section class="sidebar" id="sidebar">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidemenu">
+            <div class="d-flex justify-content-between">
+                <div style="float: left;">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                        <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                    </a>
+                </div>
+                <button class="navbar-toggler toggle-icon-close" type="button" onclick="closeNav()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- <a href="javascript:void(0)" class="closebtn mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" onclick="closeNav()" style="float: right; font-size: 2rem; margin-top: -0.5rem;">&times;</a> -->
+            </div>
+            <hr>
+            <div class="d-flex flex-column align-items-center flex-shrink-0">
+                <div class="img-crop">
+                    <img src="../img/town.png" class="profile-pic">
+                </div>
+                <div class="profile-name">Gregory House</div>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Daily Items
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Imp Personnel
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Food for all
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Vocal for Local
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Settings
+                    </a>
+                </li>
+            </ul>
+
         </div>
-    </nav>
+    </section>
 
-
-    <div class="container">
-        <div class="row gy-3 my-3 item-container">
-
-            <template data-template="item-template">
+    <main id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none">
+                            <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                            <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                        </a>
+                        <button class="navbar-toggler toggle-icon" type="button" onclick="openNav()">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <div class="row gy-3 my-3 item-container">
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="" class="card-img-top" alt="sugar">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-text"></p>
-                            <!-- <a href="" class="btn btn-primary card-link"></a> -->
+                    <div class="card float-left">
+                        <div class="row card-row">
+                            <div class="col-xs-7 card-left">
+                                <h5> <span class="card-title">Flour</span> <span> • </span><span class="card-text item-quan">1 pkt</span></h5>
+                                <p class="card-details"><i class="fas fa-rupee-sign">&nbsp;<span class="item-cost">50</span></i></p>
+                                <p class="card-details"><i class="fas fa-map-marker-alt">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                            </div>
+
+                            <div class="col-xs-5 card-right">
+                                <img class="d-block card-img" src="../img/flour.jpg" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </template>
+                <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="../img/sugar.jpg" class="card-img-top" alt="sugar">
+                        <div class="card-body">
+                            <h5 class="card-title">Sugar</h5>
+                            <p class="card-text">1 pkt</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <template data-template="item-template">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card float-left">
+                            <div class="row card-row">
+                                <div class="col-xs-7 card-left">
+                                    <h5> <span class="card-title"></span> <span> • </span><span class="card-text item-quan"></span></h5>
+                                    <p class="card-details"><i class="fas fa-rupee-sign">&nbsp;<span class="item-cost">50</span></i></p>
+                                    <p class="card-details"><i class="fas fa-map-marker-alt">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                                </div>
+                                <div class="col-xs-5 card-right">
+                                    <img class="d-block item-img" src="../img/flour.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
         </div>
-    </div>
+    </main>
 
     <div class="fab-container">
         <div class="fab shadow">
-          <div class="fab-content">
-            <span class="material-icons">support_agent</span>
-          </div>
+            <div class="fab-content">
+                <span class="material-icons">support_agent</span>
+            </div>
         </div>
         <div class="sub-button shadow">
-          <a href="/portalone" target="_blank" >
-            <span class="material-icons">phone</span>
-          </a>
+            <a href="/portalone" target="_blank">
+                <span class="material-icons">phone</span>
+            </a>
         </div>
         <div class="sub-button shadow">
-          <a href="/portalone" target="_blank">
-            <span class="material-icons">mail_outline</span>
-          </a>
+            <a href="/portalone" target="_blank">
+                <span class="material-icons">mail_outline</span>
+            </a>
         </div>
         <div class="sub-button shadow">
-          <a href="/portalone" target="_blank">
-            <span class="material-icons">language</span>
-          </a>
+            <a href="/portalone" target="_blank">
+                <span class="material-icons">language</span>
+            </a>
         </div>
         <div class="sub-button shadow">
-          <a href="/portalone" target="_blank">
-            <span class="material-icons">help_outline</span>
-          </a>
+            <a href="/portalone" target="_blank">
+                <span class="material-icons">help_outline</span>
+            </a>
         </div>
     </div>
+    <script>
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("sidebar").style.width = "100vw";
+            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "100vw";
+        }
 
-
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
     <script src="/dist/bundle.js"></script>
     <script src="../js/portalone.js"></script>

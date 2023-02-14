@@ -17,17 +17,17 @@ async function getItemDetails() {
 
     itemDetails.forEach((item, index) => {
         console.log(item, index);
-        
+
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
-        clone.querySelector('.card-img-top').src = item.image;
+        clone.querySelector('.item-img').src = item.image;
         clone.querySelector('.card-title').innerHTML = item.name;
-        clone.querySelector('.card-text').innerHTML = item.description;
+        clone.querySelector('.item-quan').innerHTML = item.description;
 
         document.querySelector('.item-container').appendChild(clone);
     });
 
-    
+
 }
 
 window.onload = () => {
@@ -38,6 +38,6 @@ window.onload = () => {
 
 //form js code
 
-$(function(){
+$(function() {
     $('#datepicker').datepicker();
-  });
+});
