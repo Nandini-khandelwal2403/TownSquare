@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/portalone', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/portalone.html'));
+    res.sendFile(path.join(__dirname, 'public/views/modalform.html'));
 });
 
 server.listen(PORT, () => {

@@ -26,14 +26,26 @@ async function getItemDetails() {
 
         document.querySelector('.item-container').appendChild(clone);
     });
+}
 
-
+function requestItem() {
+    // add user details to firestore database
+    let name = document.querySelector('.name').value;
+    let number = document.querySelector('.number').value;
+    let address = document.querySelector('.address').value;
+    firebase.addRequest(name, number, address);
 }
 
 window.onload = () => {
     getItemDetails();
+}
 
+function openModal() {
+    document.querySelector('#exampleModal').style.display = 'block';
+}
 
+function closeModal() {
+    document.querySelector('#exampleModal').style.display = 'none';
 }
 
 //form js code

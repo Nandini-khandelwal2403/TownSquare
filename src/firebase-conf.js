@@ -30,6 +30,7 @@ export const googleSignIn = () => {
             // The signed-in user info.
             const user = result.user;
             window.user = user;
+
             window.location.href = '/home';
             // ...
         }).catch((error) => {
@@ -58,7 +59,7 @@ onAuthStateChanged(auth, async(user) => {
             window.location.href = '/register';
             console.log('user is not registered');
         }
-
+        user = getUserData();
         // ...
     } else {
         // User is signed out
@@ -110,7 +111,9 @@ export const sendItems = (name, description, expiry, quantity, image) => {
         description: description,
         expiry: expiry,
         quantity: quantity,
-        image: image
+        image: image,
+        uid: user.uid,
+        email: user.email
     }).then((item) => {
         console.log("Document written with ID: ", item.id);   // refer documentation....tab hi roton jaisa soch paaoge
     }).catch((error) => {
@@ -210,3 +213,23 @@ export const getItems = () => {
         });
     });
 }
+
+// add user request to item document in items collection
+
+export const addRequest = (item) => {
+    const docRef = doc(db, "items", item.id);
+    updateDoc(docRef, {
+        requests: arrayUnion({
+            request_uid: user.uid,
+            request_user_name: user.name,
+            request_user_number: user.number,
+            request_user_address: user.address
+        })
+    }).then(() => {
+        console.log("Document successfully updated!");
+    }).catch((error) => {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+    });
+}
+
