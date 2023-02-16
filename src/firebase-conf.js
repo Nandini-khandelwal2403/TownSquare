@@ -204,6 +204,9 @@ export const getItems = () => {
         getDocs(docRef).then((querySnapshot) => {
             let items = [];
             querySnapshot.forEach((doc) => {
+                console.log(doc.id);
+                doc.data().id = doc.id;
+                console.log(doc.data());
                 items.push(doc.data());
             });
             resolve(items);
