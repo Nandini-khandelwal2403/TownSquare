@@ -216,16 +216,16 @@ export const getItems = () => {
     });
 }
 
-// add user request to item document in items collection
+// add user request to firestore database item document using item id
 
-export const addRequest = (item) => {
-    const docRef = doc(db, "items", item.id);
+export const addRequest = (itemid) => {
+    const docRef = doc(db, "items", itemid);
     updateDoc(docRef, {
         requests: arrayUnion({
             request_uid: user.uid,
             request_user_name: user.name,
-            request_user_number: user.number,
-            request_user_address: user.address
+            request_user_number: userDetails.number,
+            request_user_address: userDetails.address
         })
     }).then(() => {
         console.log("Document successfully updated!");
