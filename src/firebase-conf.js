@@ -61,6 +61,7 @@ onAuthStateChanged(auth, async(user) => {
         }
         user = await getUserData();
         window.userDetails = user;
+        setProfile();
         // ...
     } else {
         // User is signed out
@@ -219,7 +220,7 @@ export const getItems = () => {
 
 // add user request to firestore database item document using item id
 
-export const addRequest = async (itemid) => {
+export const addRequest = async(itemid) => {
     console.log(itemid);
     const docRef = doc(db, "items", itemid);
     console.log(docRef);

@@ -30,7 +30,7 @@
             <hr>
             <div class="d-flex flex-column align-items-center flex-shrink-0">
                 <div class="img-crop">
-                    <img src="../img/town.png" class="profile-pic">
+                    <img src="../img/town.png" class="profile-pic" referrerpolicy="no-referrer">
                 </div>
                 <div class="profile-name">Gregory House</div>
             </div>
@@ -141,7 +141,8 @@
     </script>
     <script>
         function setProfile() {
-
+            document.querySelector('.profile-pic').src = user.photoURL;
+            document.querySelector('.profile-name').innerHTML = userDetails.name;
         }
     </script>
 </body>
