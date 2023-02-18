@@ -60,6 +60,7 @@ onAuthStateChanged(auth, async(user) => {
             console.log('user is not registered');
         }
         user = getUserData();
+        window.userDetails = user;
         // ...
     } else {
         // User is signed out
