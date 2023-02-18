@@ -230,6 +230,9 @@ export const addRequest = async (itemid) => {
         request_user_address: userDetails.address
     }).then(() => {
         console.log("Document successfully updated!");
+
+        // send notification to the user who posted the item
+        // notifyUser(itemid);
     }).catch((error) => {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
