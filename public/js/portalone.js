@@ -17,23 +17,27 @@ async function getItemDetails() {
 
     itemDetails.forEach((item, index) => {
         console.log(item.id, index);
-
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
+        clone.querySelector('.request').dataset.itemid = item.id;
         clone.querySelector('.item-img').src = item.image;
         clone.querySelector('.card-title').innerHTML = item.name;
         clone.querySelector('.item-quan').innerHTML = item.description;
-
         document.querySelector('.item-container').appendChild(clone);
     });
+
+    const request_item = document.querySelectorAll('.request');
+    request_item.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            console.log(item.dataset.itemid);
+            requestItem(item.dataset.itemid);
+        });
+    });
+
 }
 
-function requestItem() {
-    // add user details to firestore database
-    let name = document.querySelector('.name').value;
-    let number = document.querySelector('.number').value;
-    let address = document.querySelector('.address').value;
-    firebase.addRequest(name, number, address);
+function requestItem(itemid) {
+    firebase.addRequest(itemid);
 }
 
 window.onload = () => {

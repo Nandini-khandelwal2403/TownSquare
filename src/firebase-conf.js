@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs } from "firebase/firestore";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, updateDoc, FieldValue } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { uuidv4 } from "@firebase/util";
 
@@ -60,7 +60,6 @@ onAuthStateChanged(auth, async(user) => {
             window.location.href = '/register';
             console.log('user is not registered');
         }
-
         user = await getUserData();
         window.userDetails = user;
 
@@ -220,21 +219,42 @@ export const getItems = () => {
     });
 }
 
-// add user request to item document in items collection
+// add user request to firestore database item document using item id
 
-export const addRequest = (item) => {
-    const docRef = doc(db, "items", item.id);
-    updateDoc(docRef, {
-        requests: arrayUnion({
-            request_uid: user.uid,
-            request_user_name: user.name,
-            request_user_number: user.number,
-            request_user_address: user.address
-        })
+export const addRequest = async(itemid) => {
+    console.log(itemid);
+    const docRef = doc(db, "items", itemid);
+    console.log(docRef);
+    await updateDoc(docRef, {
+        request_uid: user.uid,
+        request_user_name: userDetails.name,
+        request_user_number: userDetails.number,
+        request_user_address: userDetails.address
     }).then(() => {
         console.log("Document successfully updated!");
     }).catch((error) => {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
+    });
+}
+
+// get item for an id
+
+export const getItem = (itemid) => {
+    return new Promise((resolve, reject) => {
+        const docRef = doc(db, "items", itemid);
+        getDoc(docRef).then((doc) => {
+            if (doc.exists()) {
+                console.log("Document data:", doc.data());
+                resolve(doc.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                resolve(null);
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+            reject(error);
+        });
     });
 }
