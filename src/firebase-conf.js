@@ -51,6 +51,7 @@ onAuthStateChanged(auth, async(user) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log(user);
+        setProfile();
         window.user = user;
         if ((window.location.pathname == '/register' || window.location.pathname == '/login') && await isUserRegistered()) {
             window.location.href = '/home';
@@ -59,8 +60,10 @@ onAuthStateChanged(auth, async(user) => {
             window.location.href = '/register';
             console.log('user is not registered');
         }
-        user = getUserData();
+
+        user = await getUserData();
         window.userDetails = user;
+
         // ...
     } else {
         // User is signed out
