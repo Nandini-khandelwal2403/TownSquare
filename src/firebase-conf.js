@@ -115,7 +115,7 @@ export const sendItems = (name, description, expiry, quantity, image) => {
         uid: user.uid,
         email: user.email
     }).then((item) => {
-        console.log("Document written with ID: ", item.id);   // refer documentation....tab hi roton jaisa soch paaoge
+        console.log("Document written with ID: ", item.id); // refer documentation....tab hi roton jaisa soch paaoge
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
@@ -204,10 +204,9 @@ export const getItems = () => {
         getDocs(docRef).then((querySnapshot) => {
             let items = [];
             querySnapshot.forEach((doc) => {
-                console.log(doc.id);
-                doc.data().id = doc.id;
-                console.log(doc.data());
-                items.push(doc.data());
+                let obj = doc.data();
+                obj.id = doc.id;
+                items.push(obj);
             });
             resolve(items);
         }).catch((error) => {
@@ -235,4 +234,3 @@ export const addRequest = (item) => {
         console.error("Error updating document: ", error);
     });
 }
-
