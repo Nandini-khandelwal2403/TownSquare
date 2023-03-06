@@ -17,7 +17,7 @@ async function getItemDetails() {
 
     itemDetails.forEach((item, index) => {
         console.log(item.id, index);
-        if(item.request_uid != userDetails.uid){
+        if(item.request_uid && item.request_uid != userDetails.uid){
             return;
         }
         const template = document.querySelector('template[data-template="item-template"]')
@@ -30,6 +30,7 @@ async function getItemDetails() {
             clone.querySelector('.request').classList.remove('btn-outline-primary');
             clone.querySelector('.request').classList.add('btn-primary');
         }
+
         document.querySelector('.item-container').appendChild(clone);
     });
 
