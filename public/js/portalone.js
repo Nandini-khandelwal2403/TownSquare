@@ -17,12 +17,19 @@ async function getItemDetails() {
 
     itemDetails.forEach((item, index) => {
         console.log(item.id, index);
+        if(item.request_uid != userDetails.uid){
+            return;
+        }
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
         clone.querySelector('.request').dataset.itemid = item.id;
         clone.querySelector('.item-img').src = item.image;
         clone.querySelector('.card-title').innerHTML = item.name;
         clone.querySelector('.item-quan').innerHTML = item.description;
+        if(item.request_uid) {
+            clone.querySelector('.request').classList.remove('btn-outline-primary');
+            clone.querySelector('.request').classList.add('btn-primary');
+        }
         document.querySelector('.item-container').appendChild(clone);
     });
 
@@ -31,6 +38,9 @@ async function getItemDetails() {
         item.addEventListener('click', (e) => {
             console.log(item.dataset.itemid);
             requestItem(item.dataset.itemid);
+            // remove btn-outline-primary class from the button and add btn-primary class
+            item.classList.remove('btn-outline-primary');
+            item.classList.add('btn-primary');
         });
     });
 
@@ -40,9 +50,9 @@ function requestItem(itemid) {
     firebase.addRequest(itemid);
 }
 
-window.onload = () => {
-    getItemDetails();
-}
+// window.onload = () => {
+//     getItemDetails();
+// }
 
 function openModal() {
     document.querySelector('#exampleModal').style.display = 'block';

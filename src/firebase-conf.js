@@ -61,6 +61,7 @@ onAuthStateChanged(auth, async(user) => {
         }
         user = await getUserData();
         window.userDetails = user;
+        getItemDetails();
         setProfile();
         // ...
     } else {
