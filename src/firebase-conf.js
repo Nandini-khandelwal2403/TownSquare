@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithRedirect } from "firebase/auth";
 import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, updateDoc, FieldValue } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { uuidv4 } from "@firebase/util";
@@ -20,6 +20,32 @@ const storage = getStorage(app);
 const storageRef = ref(storage);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+
+// sign in with redirect
+
+// export const googleSignIn = () => {
+//     signInWithRedirect(auth, provider)
+//         .then((result) => {
+//             // This gives you a Google Access Token. You can use it to access the Google API.
+//             const credential = GoogleAuthProvider.credentialFromResult(result);
+//             const token = credential.accessToken;
+//             // The signed-in user info.
+//             const user = result.user;
+//             window.user = user;
+
+//             window.location.href = '/home';
+//             // ...
+//         }).catch((error) => {
+//             // Handle Errors here.
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             // The email of the user's account used.
+//             const email = error.customData.email;
+//             // The AuthCredential type that was used.
+//             const credential = GoogleAuthProvider.credentialFromError(error);
+//             // ...
+//         });
+// }
 
 export const googleSignIn = () => {
     signInWithPopup(auth, provider)
