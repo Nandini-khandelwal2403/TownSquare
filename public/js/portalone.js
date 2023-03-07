@@ -17,16 +17,30 @@ async function getItemDetails() {
 
     itemDetails.forEach((item, index) => {
         console.log(item.id, index);
-        if(item.request_uid && item.request_uid != userDetails.uid){
+        if(item.request_uid && item.request_uid != userDetails.uid && item.uid != userDetails.uid){
             return;
         }
+        
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
+        if(item.uid == userDetails.uid) {
+            if(item.request_uid) {
+                clone.querySelector('.req_item_text').innerHTML = 'Requested';
+                clone.querySelector('.request').classList.remove('btn-outline-primary');
+                clone.querySelector('.request').classList.add('btn-success');
+                clone.querySelector('.request').disabled = true;
+            }else{
+                clone.querySelector('.req_item_text').innerHTML = 'Not Requested';
+                clone.querySelector('.request').classList.remove('btn-outline-primary');
+                clone.querySelector('.request').classList.add('btn-outline-success');
+                clone.querySelector('.request').disabled = true;
+            }
+        }
         clone.querySelector('.request').dataset.itemid = item.id;
         clone.querySelector('.item-img').src = item.image;
         clone.querySelector('.card-title').innerHTML = item.name;
         clone.querySelector('.item-quan').innerHTML = item.description;
-        if(item.request_uid) {
+        if(item.request_uid == userDetails.uid) {
             clone.querySelector('.request').classList.remove('btn-outline-primary');
             clone.querySelector('.request').classList.add('btn-primary');
         }
