@@ -28,10 +28,6 @@ app.post('/api/user/update', (req, res) => {
     res.json(req.body);
 })
 
-app.get('/api/user/data', (req, res) => {
-
-})
-
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/register.html'));
 });
@@ -44,6 +40,10 @@ app.get('/shareportal', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/shareportal.html'));
 });
 
+app.get('/infoportal', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/infoportal.html'));
+});
+
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/login.html'));
 });
@@ -52,9 +52,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 
-app.get('/portalone', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/modalform.html'));
-});
+// app.get('/portalone', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/views/modalform.html'));
+// });
 
 server.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
