@@ -1,4 +1,2 @@
 - Redirect to home after successful registration else show error popup.
 - Onclick modal of complete item details.
-- Change "request" to "requested" when requested.
-- Remove hard coded details from item card.

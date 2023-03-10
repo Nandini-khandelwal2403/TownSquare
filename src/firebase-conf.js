@@ -142,7 +142,10 @@ export const sendItems = (name, description, expiry, quantity, image) => {
         quantity: quantity,
         image: image,
         uid: user.uid,
-        email: user.email
+        email: user.email,
+        address: userDetails.address,
+        number: userDetails.number,
+        pincode: userDetails.pincode,
     }).then((item) => {
         console.log("Document written with ID: ", item.id); // refer documentation....tab hi roton jaisa soch paaoge
     }).catch((error) => {
