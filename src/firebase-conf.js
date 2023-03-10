@@ -143,6 +143,7 @@ export const sendItems = (name, description, expiry, quantity, image) => {
         image: image,
         uid: user.uid,
         email: user.email,
+        username: userDetails.name,
         address: userDetails.address,
         number: userDetails.number,
         pincode: userDetails.pincode,
