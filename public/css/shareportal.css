@@ -239,3 +239,14 @@
     margin-bottom: 0.5rem;
 }
 
+#itemModal img {
+    margin: auto;
+    width: 60%;
+    height: auto;
+    max-height: 100%;
+    object-fit: fill;
+    padding-right: 5px;
+    /* height: 150px;
+    position: absolute;
+    left: 280px; */
+}

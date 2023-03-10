@@ -89,13 +89,13 @@
                 </div>
             </div>
             <div class="row gy-3 my-3 item-container">
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <!-- <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="card float-left">
                         <div class="row card-row">
                             <div class="col-xs-7 card-left">
                                 <h5> <span class="card-title">Flour</span> <span> • </span><span class="card-text item-quan">1 pkt</span></h5>
-                                <p class="card-details"><i class="fas fa-rupee-sign">&nbsp;<span class="item-cost">50</span></i></p>
-                                <p class="card-details"><i class="fas fa-map-marker-alt">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                                <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="item-cost">50</span></i></p>
+                                <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
                             </div>
 
                             <div class="col-xs-5 card-right">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="card">
                         <img src="../img/sugar.jpg" class="card-img-top" alt="sugar">
@@ -120,8 +120,8 @@
                             <div class="row card-row">
                                 <div class="col-xs-7 card-left">
                                     <h5> <span class="card-title"></span> <span> • </span><span class="card-text item-quan"></span></h5>
-                                    <p class="card-details"><i class="fas fa-rupee-sign">&nbsp;<span class="item-cost">50</span></i></p>
-                                    <p class="card-details"><i class="fas fa-map-marker-alt">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                                    <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="item-cost">50</span></i></p>
+                                    <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
                                 </div>
                                 <div class="col-xs-5 card-right">
                                     <img class="d-block item-img" src="../img/flour.jpg" alt="">
@@ -145,7 +145,7 @@
         </div>
         <div class="sub-button shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <a target="_blank">
-                <span class="material-icons" >phone</span>
+                <span class="material-icons">phone</span>
             </a>
         </div>
         <div class="sub-button shadow">
@@ -167,71 +167,118 @@
 
 
     <!-- Form Modal -->
-    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form class="row g-3" onsubmit="return false">
-              <div class="col-md-6">
-                <label for="ItemName" class="form-label">Item Name</label>
-                <input type="text" class="form-control form-item-name" id="firstName" required>
-              </div>
-        
-              <div class="col-md-12">
-                <label for="comments" class="form-label">Details-Description</label>
-                <textarea class="form-control form-item-des" id="comments" rows="3" required></textarea>
-              </div>
-        
-              <body >
-                <section class="container">
-                    
-                   
-                        <div class="row form-group">
-                            <label for="date" class="col-sm-1 col-form-label Exp-date ">ExpiryDate</label>
-                            <div class="col-md-4">
-                                <div class="input-group date" id="datepicker">
-                                    <input type="text" class="form-control form-item-exp">
-                                    <span class="input-group-append">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" onsubmit="return false">
+                        <div class="col-md-6">
+                            <label for="ItemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control form-item-name" id="firstName" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="comments" class="form-label">Details-Description</label>
+                            <textarea class="form-control form-item-des" id="comments" rows="3" required></textarea>
+                        </div>
+
+                        <body>
+                            <section class="container">
+
+
+                                <div class="row form-group">
+                                    <label for="date" class="col-sm-1 col-form-label Exp-date ">ExpiryDate</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group date" id="datepicker">
+                                            <input type="text" class="form-control form-item-exp">
+                                            <span class="input-group-append">
                                         <span class="input-group-text bg-white">
                                             <i class="fa fa-calendar"></i>
                                         </span>
-                                    </span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
+
+
+
+                            </section>
+
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datepicker').datepicker();
+                                });
+                            </script>
+
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Quantity</label>
+                                <input type="text" class="form-control form-item-quan" id="lastName" required>
                             </div>
-                        </div>
-                    
-                     
-                
-                  </section>
-            
-                <script type="text/javascript">
-                    $(function() {
-                        $('#datepicker').datepicker();
-                    });
-                </script>
-        
-              <div class="col-md-6">
-                <label for="lastName" class="form-label">Quantity</label>
-                <input type="text" class="form-control form-item-quan" id="lastName" required>
-              </div>
-              
-        
-              <label class="form-label" for="customFile">Default file input example</label>
-                <input type="file" class="form-control form-item-img" id="customFile" />
-              
-              <div class="col-md-12">
-                <button type="submit" onclick="itemDetail()" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
+
+
+                            <label class="form-label" for="customFile">Default file input example</label>
+                            <input type="file" class="form-control form-item-img" id="customFile" />
+
+                            <div class="col-md-12">
+                                <button type="submit" onclick="itemDetail()" class="btn btn-primary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal">
+        Launch demo modal
+    </button> -->
+
+
+    <!-- Item modal-->
+    <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true" style="z-index: 10000;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <img src="" alt="paracetamol" class="modal-item-img">
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h5> <span class="card-title modal-item-name">Flour</span> <span> • </span><span class="card-text modal-item-quan">1 pkt</span></h5>
+                        <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="modal-item-exp">50</span></i></p>
+                        <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="modal-item-des">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h6>Added by:</h6>
+                        <h7><span class="add-name"></span></h7>
+                        <h7><span class="add-mobile"></span></h7>
+                        <h7><span class="add-address"></span></h7>
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h6>Requested by:</h6>
+                        <h7><span class="req-name"></span></h7>
+                        <h7><span class="req-mobile"></span></h7>
+                        <h7><span class="req-address"></span></h7>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     
@@ -341,12 +388,19 @@
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
+    <script>
+        function setProfile() {
+            document.querySelector('.profile-pic').src = user.photoURL;
+            document.querySelector('.profile-name').innerHTML = userDetails.name;
+        }
+    </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <script src="/dist/bundle.js"></script>
     <script src="../js/portalone.js"></script>
-</body>
+    </body>
 
 </html>

@@ -13,24 +13,25 @@ async function itemDetail() {
 }
 
 async function getItemDetails() {
+    console.log('get item details');
     const itemDetails = await firebase.getItems();
     console.log(itemDetails);
 
     itemDetails.forEach((item, index) => {
         console.log(item.id, index);
-        if(item.request_uid && item.request_uid != userDetails.uid && item.uid != userDetails.uid){
+        if (item.request_uid && item.request_uid != userDetails.uid && item.uid != userDetails.uid) {
             return;
         }
-        
+
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
-        if(item.uid == userDetails.uid) {
-            if(item.request_uid) {
+        if (item.uid == userDetails.uid) {
+            if (item.request_uid) {
                 clone.querySelector('.req_item_text').innerHTML = 'Requested';
                 clone.querySelector('.request').classList.remove('btn-outline-primary');
                 clone.querySelector('.request').classList.add('btn-success');
                 clone.querySelector('.request').disabled = true;
-            }else{
+            } else {
                 clone.querySelector('.req_item_text').innerHTML = 'Not Requested';
                 clone.querySelector('.request').classList.remove('btn-outline-primary');
                 clone.querySelector('.request').classList.add('btn-outline-success');
@@ -45,8 +46,8 @@ async function getItemDetails() {
         clone.querySelector('.item-addr').innerHTML = item.address;
         clone.querySelector('.item-cost').innerHTML = item.expiry;
         clone.querySelector('.item-quan').innerHTML = item.quantity;
-        
-        if(item.request_uid == userDetails.uid) {
+
+        if (item.request_uid == userDetails.uid) {
             clone.querySelector('.request').classList.remove('btn-outline-primary');
             clone.querySelector('.request').classList.add('btn-primary');
             clone.querySelector('.request').disabled = true;
@@ -75,6 +76,22 @@ async function getItemDetails() {
                 return itemDetail.id == item.dataset.itemid;
             });
             console.log(itemObj);
+            // update the modal with item details
+            document.querySelector('.modal-item-img').src = itemObj.image;
+            document.querySelector('.modal-item-name').innerHTML = itemObj.name;
+            document.querySelector('.modal-item-quan').innerHTML = itemObj.quantity;
+            document.querySelector('.modal-item-des').innerHTML = itemObj.description;
+            document.querySelector('.modal-item-exp').innerHTML = itemObj.expiry;
+            document.querySelector('.add-name').innerHTML = itemObj.username;
+            document.querySelector('.add-mobile').innerHTML = itemObj.number;
+            // document.querySelector('.add-email').innerHTML = itemObj.email;
+            document.querySelector('.add-address').innerHTML = itemObj.address;
+            document.querySelector('.req-name').innerHTML = itemObj.request_user_name;
+            document.querySelector('.req-mobile').innerHTML = itemObj.request_user_number;
+            // document.querySelector('req-email').innerHTML = itemObj.request_user_email;
+            document.querySelector('.req-address').innerHTML = itemObj.request_user_address;
+            // show itemModal
+            openModal('itemModal');
         });
     });
 
@@ -88,12 +105,13 @@ function requestItem(itemid) {
 //     getItemDetails();
 // }
 
-function openModal() {
-    document.querySelector('#exampleModal').style.display = 'block';
+function openModal(modalclass) {
+    console.log(document.querySelector(`#${modalclass}`));
+    $(`#${modalclass}`).modal('show');
 }
 
-function closeModal() {
-    document.querySelector('#exampleModal').style.display = 'none';
+function closeModal(modalclass) {
+    $(`#${modalclass}`).modal('hide');
 }
 
 //form js code
