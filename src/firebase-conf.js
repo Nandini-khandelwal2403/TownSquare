@@ -87,7 +87,12 @@ onAuthStateChanged(auth, async(user) => {
         }
         user = await getUserData();
         window.userDetails = user;
-        getItemDetails();
+        // if on /shareportal page run getItemsDetails
+        if (window.location.pathname == '/shareportal') {
+            getItemsDetails();
+        } else if (window.location.pathname == '/infoportal') {
+            getInfoDetails();
+        }
         setProfile();
         // ...
     } else {
@@ -287,6 +292,44 @@ export const getItem = (itemid) => {
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
+            reject(error);
+        });
+    });
+}
+
+// send info to firestore database
+
+export const sendInfo = (person_name, occupation, person_number, person_address, downloadImageURL, person_fees) => {
+    const docRef = collection(db, "info");
+    addDoc(docRef, {
+        person_name: person_name,
+        occupation: occupation,
+        person_number: person_number,
+        person_address: person_address,
+        image: downloadImageURL,
+        person_fees: person_fees,
+    }).then((item) => {
+        console.log("Document written with ID: ", item.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
+// get all personnel info from firestore database
+
+export const getInfo = () => {
+    return new Promise((resolve, reject) => {
+        const docRef = collection(db, "info");
+        getDocs(docRef).then((querySnapshot) => {
+            let items = [];
+            querySnapshot.forEach((doc) => {
+                let obj = doc.data();
+                obj.id = doc.id;
+                items.push(obj);
+            });
+            resolve(items);
+        }).catch((error) => {
+            console.log("Error getting documents: ", error);
             reject(error);
         });
     });
