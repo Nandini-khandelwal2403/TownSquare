@@ -89,7 +89,7 @@ onAuthStateChanged(auth, async(user) => {
         window.userDetails = user;
         // if on /shareportal page run getItemsDetails
         if (window.location.pathname == '/shareportal') {
-            getItemsDetails();
+            getItemDetails();
         } else if (window.location.pathname == '/infoportal') {
             getInfoDetails();
         }
