@@ -121,13 +121,18 @@ async function getItemDetails() {
             document.querySelector('.modal-item-exp').innerHTML = itemObj.expiry;
             document.querySelector('.add-name').innerHTML = itemObj.username;
             document.querySelector('.add-mobile').innerHTML = itemObj.number;
-            // document.querySelector('.add-email').innerHTML = itemObj.email;
             document.querySelector('.add-address').innerHTML = itemObj.address;
             if(itemObj.request_user_name){
+                document.querySelector('.requested-by').innerHTML = 'Requested by:';
                 document.querySelector('.req-name').innerHTML = itemObj.request_user_name;
                 document.querySelector('.req-mobile').innerHTML = itemObj.request_user_number;
-                // document.querySelector('req-email').innerHTML = itemObj.request_user_email;
                 document.querySelector('.req-address').innerHTML = itemObj.request_user_address;
+            }else{
+                document.querySelector('.requested-by').innerHTML = '';
+                document.querySelector('.req-name').innerHTML = '';
+                document.querySelector('.req-mobile').innerHTML = '';
+                // document.querySelector('req-email').innerHTML = '';
+                document.querySelector('.req-address').innerHTML = '';
             }
             // show itemModal
             openModal('itemModal');
