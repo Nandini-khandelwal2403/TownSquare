@@ -1,6 +1,7 @@
 // code to send the item details to firestore database
 
 async function itemDetail() {
+
     let item_name = document.querySelector('.form-item-name').value;
     let item_des = document.querySelector('.form-item-des').value;
     let item_exp = document.querySelector('.form-item-exp').value;
@@ -8,8 +9,44 @@ async function itemDetail() {
     let item_img = document.querySelector('.form-item-img').files[0];
     console.log(item_name, item_des, item_exp, item_quan, item_img);
     $('#exampleModal').modal('hide');
-    const downloadImageURL = await firebase.uploadImage(item_img);
+    let downloadImageURL;
+    if (imgflag) {
+        downloadImageURL = "https://firebasestorage.googleapis.com/v0/b/townsquare-e2578.appspot.com/o/images%2F0aaebdcb-57c9-452a-9c75-dd77b5c46f21?alt=media&token=307e9bfe-ee41-4ecb-be84-1235fb5a11a8";
+    } else {
+        downloadImageURL = await firebase.uploadImage(item_img);
+    }
+    // const downloadImageURL = await firebase.uploadImage(item_img);
     firebase.sendItems(item_name, item_des, item_exp, item_quan, downloadImageURL);
+}
+
+let imgflag = true;
+
+document.querySelector('.form-item-img').addEventListener('change', (e) => {
+    imgflag = false;
+    console.log(e.target.files[0]);
+});
+
+function generateFakeData() {
+    document.querySelector('.form-item-name').value = faker.commerce.productName();
+    document.querySelector('.form-item-des').value = faker.commerce.productDescription();
+    document.querySelector('.form-item-exp').value = formatDate(faker.date.future());
+    document.querySelector('.form-item-quan').value = faker.random.numeric() * 100;
+
+    
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [day, month, year].join('/');
 }
 
 async function getItemDetails() {
@@ -101,10 +138,6 @@ function requestItem(itemid) {
     firebase.addRequest(itemid);
 }
 
-// window.onload = () => {
-//     getItemDetails();
-// }
-
 function openModal(modalclass) {
     console.log(document.querySelector(`#${modalclass}`));
     $(`#${modalclass}`).modal('show');
@@ -113,8 +146,6 @@ function openModal(modalclass) {
 function closeModal(modalclass) {
     $(`#${modalclass}`).modal('hide');
 }
-
-//form js code
 
 $(function() {
     $('#datepicker').datepicker();
