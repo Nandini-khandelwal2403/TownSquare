@@ -42,7 +42,40 @@
     z-index: 2;
 }
 
+.jumbo-occupation-row {
+    /* overflow: hidden; */
+    /* position: relative; */
+}
 
+.jumbo-occupation {
+    /* width: 400px; */
+    overflow-x: auto;
+    white-space: nowrap;
+    height: 30px;
+    /* width: 900px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 30px; */
+}
+
+.jumbo-occupation > .col {
+    display: inline-block;
+    float: none;
+}
+
+.testimonial-group > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .testimonial-group > .row > .col-xs-4 {
+    display: inline-block;
+    float: none;
+  }
+
+  .col-xs-4 { color: #fff; font-size: 48px; padding-bottom: 20px; padding-top: 18px; }
+.col-xs-4:nth-child(3n+1) { background: #c69; }
+.col-xs-4:nth-child(3n+2) { background: #9c6; }
+.col-xs-4:nth-child(3n+3) { background: #69c; }
 /* .fab-container .fab::before {
     content: " ";
     position: absolute;

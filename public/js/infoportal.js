@@ -23,7 +23,7 @@ async function sendInfoDetails() {
 
 function generateFakeData() {
     document.querySelector('.form-person-name').value = faker.name.fullName();
-    document.querySelector('.form-occupation').value = faker.helpers.arrayElement(['Doctor', 'Nurse', 'Police', 'Fireman', 'Teacher', 'Engineer', 'Worker']);
+    document.querySelector('.form-occupation').value = faker.helpers.arrayElement(['Doctor', 'Nurse', 'Police', 'Fireman', 'Teacher', 'Engineer', 'Worker', 'other']);
     document.querySelector('.form-person-number').value = faker.phone.number('501-###-###');
     document.querySelector('.form-person-address').value = faker.address.streetAddress();
     // document.querySelector('.form-person-img').files = dataTransfer.files;
