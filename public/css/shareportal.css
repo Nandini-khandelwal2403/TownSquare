@@ -35,14 +35,15 @@
 
 .fab-container .fab {
     position: relative;
-    height: 70px;
-    width: 70px;
+    height: 58px;
+    width: 58px;
     background-color: #4ba2ff;
     border-radius: 50%;
     z-index: 2;
 }
 
-.fab-container .fab::before {
+
+/* .fab-container .fab::before {
     content: " ";
     position: absolute;
     bottom: 0;
@@ -52,7 +53,7 @@
     background-color: inherit;
     border-radius: 0 0 10px 0;
     z-index: -1;
-}
+} */
 
 .fab-container .fab .fab-content {
     display: flex;
@@ -65,7 +66,7 @@
 
 .fab-container .fab .fab-content .material-icons {
     color: white;
-    font-size: 48px;
+    font-size: 28px;
 }
 
 .fab-container .sub-button {
