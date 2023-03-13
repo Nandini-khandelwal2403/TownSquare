@@ -64,3 +64,16 @@ async function getInfoDetails() {
         document.querySelector('.info-container').appendChild(clone);
     });
 }
+
+function filterInfo(occupation) {
+    console.log(occupation);
+    const infoCards = document.querySelectorAll('.card');
+    infoCards.forEach((card) => {
+        console.log(card.dataset.occupation);
+        if (card.dataset.occupation === occupation) {
+            card.classList.remove('d-none');
+        } else {
+            card.classList.add('d-none');
+        }
+    });
+}
