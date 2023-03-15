@@ -42,21 +42,48 @@
     z-index: 2;
 }
 
+.jumbo-occupation-row {
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* white-space: nowrap; */
+    flex-wrap: nowrap;
+    /* height: 30px; */
+    /* width: 300px; */
+    /* position: relative; */
+}
 
-/* .jumbo-occupation-row {
-    overflow: hidden;
-    position: relative;
-} */
+.jumbo-occupation-row::-webkit-scrollbar {
+    display: none;
+}
 
-.jumbo-occupation {
-    /* width: 400px; */
+.jumbo-occupation-row {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+/* .jumbo-occupation {
+    width: 400px;
     overflow-x: auto;
     white-space: nowrap;
     height: 30px;
-    /* width: 900px;
+    width: 900px;
     overflow-x: auto;
     overflow-y: hidden;
-    height: 30px; */
+    height: 30px;
+} */
+
+.btn-occ {
+    /* width: 20%;
+    display: inline-block;
+    float: none; */
+    flex: 0 0 auto;
+    width: 20%;
+    margin: 5px 5px;
+    padding: 2px 2px;
+    border-radius: 50px;
 }
 
 .jumbo-occupation>.col {

@@ -52,6 +52,7 @@ async function getInfoDetails() {
         const template = document.querySelector('template[data-template="info-template"]')
         let clone = template.content.cloneNode(true);
         clone.querySelector('.card').dataset.infoid = info.id;
+        clone.querySelector('.card').dataset.occupation = info.occupation;
         clone.querySelector('.info-img').src = info.image;
         clone.querySelector('.card-title').innerHTML = info.person_name;
         clone.querySelector('.info-addr').innerHTML = info.person_address;
@@ -65,7 +66,7 @@ async function getInfoDetails() {
     });
 }
 
-function filterInfo(occupation) {
+function filterOcc(occupation) {
     console.log(occupation);
     const infoCards = document.querySelectorAll('.card');
     infoCards.forEach((card) => {
@@ -75,5 +76,13 @@ function filterInfo(occupation) {
         } else {
             card.classList.add('d-none');
         }
+    });
+}
+
+function filterShowAll() {
+    // console.log(occupation);
+    const infoCards = document.querySelectorAll('.card');
+    infoCards.forEach((card) => {
+        card.classList.remove('d-none');
     });
 }
