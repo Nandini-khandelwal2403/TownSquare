@@ -30,9 +30,9 @@ function generateFakeData() {
     document.querySelector('.form-person-fees').value = faker.random.numeric() * 100;
 }
 
-setInterval(() => {
-    generateFakeData();
-}, 1000);
+// setInterval(() => {
+//     generateFakeData();
+// }, 1000);
 
 let imgflag = true;
 
