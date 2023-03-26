@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <link rel="stylesheet" href="../css/food.css">
+</head>
+
+<body>
+
+    <section class="sidebar" id="sidebar">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidemenu">
+            <div class="d-flex justify-content-between">
+                <div style="float: left;">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                        <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                    </a>
+                </div>
+                <button class="navbar-toggler toggle-icon-close" type="button" onclick="closeNav()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- <a href="javascript:void(0)" class="closebtn mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" onclick="closeNav()" style="float: right; font-size: 2rem; margin-top: -0.5rem;">&times;</a> -->
+            </div>
+            <hr>
+            <div class="d-flex flex-column align-items-center flex-shrink-0">
+                <div class="img-crop">
+                    <img src="../img/town.png" class="profile-pic">
+                </div>
+                <div class="profile-name">Gregory House</div>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Daily Items
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Imp Personnel
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Food for all
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Vocal for Local
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Settings
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+    <main id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none">
+                            <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                            <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                        </a>
+                        <button class="navbar-toggler toggle-icon" type="button" onclick="openNav()">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <div class="row gy-3 my-3 item-container">
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card float-left">
+                        <div class="row card-row">
+                            <div class="col-xs-12 card-left">
+                                <h4> <span class="card-title">Sharma Treat</span></h4>
+                                <p>Amount: <span class="food-amount">15 Kg</span></p>
+                                <p> <span class="card-details">8:30</span></p>
+                                <p> <span class="card-details">Address</span></p>
+                            </div>
+                        </div>
+                        <!-- <div class="row card-row">
+                            <div class="col-xs-12 card-left">
+
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="row card-row">
+                            <div class="col-xs-12 card-left">
+                                
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+
+                <template data-template="item-template">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card float-left">
+                            <div class="row card-row">
+                                <div class="col-xs-12 card-left">
+                                    <h5> <span class="card-title">Sharma Treat</span></h5>
+                                </div>
+                            </div>
+                            <div class="row card-row">
+                                <div class="col-xs-12 card-left">
+                                    <p> <span class="food-amount">15 Kg</span></p>
+                                </div>
+                            </div>
+                            <div class="row card-row">
+                                <div class="col-xs-12 card-left">
+                                    <p> <span class="card-details"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Food Location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" onsubmit="return false">
+                        <div class="col-md-6">
+                            <label for="orgName" class="form-label">Organization Name</label>
+                            <input type="text" class="form-control form-organization-name" id="orgName" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="text" class="form-control form-quantity" id="quantitiy" required>
+                            <!-- <textarea class="form-control form-item-des" id="comments" rows="3" required></textarea> -->
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="time" class="form-label">Time</label>
+                            <input type="tel" class="form-control form-time" id="time" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="address" class="form-label">Locatiom</label>
+                            <input type="text" class="form-control form-address" id="address" required>
+                        </div>
+
+
+                        <div class="col-md-6 form-switch">
+                            <span>Veg</span>
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Non-Veg</label>
+                        </div>
+                        <!-- <div class="form-check form-switch">
+
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Non-Veg</label>
+                        </div> -->
+
+                        <div class="col-md-12">
+                            <button type="submit" onclick="sendInfoDetails()" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fab-container">
+        <div class="fab shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="fab-content">
+                <span class="material-icons">library_add</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/dist/bundle.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> -->
+    <script>
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("sidebar").style.width = "100vw";
+            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "100vw";
+        }
+
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script>
+        function setProfile() {
+            document.querySelector('.profile-pic').src = user.photoURL;
+            document.querySelector('.profile-name').innerHTML = userDetails.name;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>

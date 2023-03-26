@@ -1,0 +1,253 @@
+.fab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.fab-container:hover {
+    height: 100%;
+}
+
+.fab-container:hover .sub-button:nth-child(2) {
+    transform: translateY(-80px);
+}
+
+.fab-container:hover .sub-button:nth-child(3) {
+    transform: translateY(-140px);
+}
+
+.fab-container:hover .sub-button:nth-child(4) {
+    transform: translateY(-200px);
+}
+
+.fab-container:hover .sub-button:nth-child(5) {
+    transform: translateY(-260px);
+}
+
+.fab-container:hover .sub-button:nth-child(6) {
+    transform: translateY(-320px);
+}
+
+.fab-container .fab {
+    position: relative;
+    height: 58px;
+    width: 58px;
+    background-color: #4ba2ff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+
+/* .fab-container .fab::before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    background-color: inherit;
+    border-radius: 0 0 10px 0;
+    z-index: -1;
+} */
+
+.fab-container .fab .fab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.fab-container .fab .fab-content .material-icons {
+    color: white;
+    font-size: 28px;
+}
+
+.fab-container .sub-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #4ba2ff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.fab-container .sub-button:hover {
+    cursor: pointer;
+}
+
+.fab-container .sub-button .material-icons {
+    color: white;
+    padding-top: 6px;
+}
+
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    /* -webkit-font-feature-settings: 'liga'; */
+    -webkit-font-smoothing: antialiased;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    display: none;
+}
+
+.sidebar>div {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100vh;
+}
+
+.ts-name {
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.img-crop {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.img-crop>.profile-pic {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.topbar {
+    width: 100vw;
+    padding: 0;
+}
+
+.topbar>nav {
+    /* margin-left: 1rem; */
+    /* margin-right: 1rem; */
+    padding: 1rem;
+}
+
+.toggle-icon {
+    margin-top: 0rem;
+}
+
+.title {
+    margin-top: 1rem;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.toggle-icon-close {
+    margin-top: -1rem;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0.6rem;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    /* margin-top: 20px; */
+    width: 100%;
+}
+
+
+/* .float-left {
+    height: 18vh;
+} */
+
+.card-left {
+    width: 60%;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    /* margin-left: 0.3rem; */
+}
+
+.card-right {
+    width: 40%;
+}
+
+.card-right>img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: fill;
+    padding-right: 5px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+}
+
+.card-text {
+    font-size: 1.2rem;
+}
+
+.card-details {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#itemModal img {
+    margin: auto;
+    width: 60%;
+    height: auto;
+    max-height: 100%;
+    object-fit: fill;
+    padding-right: 5px;
+    /* height: 150px;
+    position: absolute;
+    left: 280px; */
+}
