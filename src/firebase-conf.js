@@ -92,6 +92,8 @@ onAuthStateChanged(auth, async(user) => {
             getItemDetails();
         } else if (window.location.pathname == '/infoportal') {
             getInfoDetails();
+        } else if (window.location.pathname == '/foodforall') {
+            getFoodDetails();
         }
         setProfile();
         // ...
@@ -320,6 +322,41 @@ export const sendInfo = (person_name, occupation, person_number, person_address,
 export const getInfo = () => {
     return new Promise((resolve, reject) => {
         const docRef = collection(db, "info");
+        getDocs(docRef).then((querySnapshot) => {
+            let items = [];
+            querySnapshot.forEach((doc) => {
+                let obj = doc.data();
+                obj.id = doc.id;
+                items.push(obj);
+            });
+            resolve(items);
+        }).catch((error) => {
+            console.log("Error getting documents: ", error);
+            reject(error);
+        });
+    });
+}
+
+// send food info to firestore database
+
+export const sendFoodInfo = (orgName, quantity, time, address, type) => {
+    const docRef = collection(db, "food");
+    addDoc(docRef, {
+        orgName: orgName,
+        quantity: quantity,
+        time: time,
+        address: address,
+        type: type,
+    }).then((food) => {
+        console.log("Document written with ID: ", food.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
+export const getFoodInfo = () => {
+    return new Promise((resolve, reject) => {
+        const docRef = collection(db, "food");
         getDocs(docRef).then((querySnapshot) => {
             let items = [];
             querySnapshot.forEach((doc) => {
