@@ -14,7 +14,7 @@ async function getFoodDetails() {
     const foodDetails = await firebase.getFoodInfo();
     console.log(foodDetails);
 
-    // sort foodDetails by food quantity (descending order)
+    // sort foodDetails by food quantity (descending order, quantity format is "x kg")
     foodDetails.sort((a, b) => {
         let aQuantity = parseInt(a.quantity.split(" ")[0]);
         let bQuantity = parseInt(b.quantity.split(" ")[0]);
