@@ -251,3 +251,15 @@
     position: absolute;
     left: 280px; */
 }
+
+.media-body p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-quantity-text {
+    position: relative;
+    top: 0.2rem;
+    font-size: 1rem;
+    vertical-align: middle;
+}

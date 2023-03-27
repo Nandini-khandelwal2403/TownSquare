@@ -19,7 +19,7 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css"> -->
 </head>
@@ -95,28 +95,55 @@
                 </div>
             </div>
             <div class="row gy-3 my-3 food-container">
-                <div class="col-xl-3 col-sm-6 col-12">
+                <!-- <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="media d-flex justify-content-between">
                                     <div class="media-body text-left">
-                                        <h3 class="success">64.89 %</h3>
-                                        <span>Bounce Rate</span>
+                                        <h3 class="danger">20 kg</h3>
+                                        <span>Sharma Treat</span>
                                     </div>
-                                    <div class="align-self-center">
-                                        <!-- <i class="icon-cup success font-large-2 float-right"></i> -->
-                                        <i class="fas fa-drumstick-bite" style="font-size: 2rem;"></i>
+                                    <div class="align-self-center d-flex flex-column justify-content-between text-align-center">
+                                        <i class="fas fa-drumstick-bite danger" style="font-size: 2rem; text-align: center;"></i>
+                                        <span class="food-type" style="font-size: 0.85rem;">Non-Veg</span>
                                     </div>
                                 </div>
-                                <div class="progress mt-1 mb-0" style="height: 7px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="media d-flex justify-content-between">
+                                    <div class="media-body text-left">
+                                        <p><span>5:00 PM</span> • <span>Lakhsmangarh</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <template data-template="food-template">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex justify-content-between">
+                                        <div class="media-body text-left">
+                                            <h3 class="food-quantity">20 kg</h3>
+                                            <span class="card-title">Sharma Treat</span>
+                                        </div>
+                                        <div class="align-self-center d-flex flex-column justify-content-between text-align-center">                
+                                            <i class="fas food-icon" style="font-size: 2rem; text-align: center;"></i>
+                                            <span class="food-type" style="font-size: 0.85rem;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="media d-flex justify-content-between">
+                                        <div class="media-body text-left">
+                                            <p><span class="food-time">5:00 PM</span> • <span class="food-address">Lakhsmangarh</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <!-- <template data-template="food-template">
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card float-left">
                             <div class="row card-row">
@@ -129,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                </template>
+                </template> -->
             </div>
         </div>
     </main>
@@ -150,7 +177,14 @@
 
                         <div class="col-md-12">
                             <label for="quantity" class="form-label">Quantity</label>
-                            <input type="text" class="form-control form-quantity" id="quantity" required>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <input type="text" class="form-control form-quantity" id="quantity" required>
+                                </div>
+                                <div class="col-auto">
+                                    <span class="form-text form-quantity-text">kilograms</span>
+                                </div>
+                            </div>
                             <!-- <textarea class="form-control form-item-des" id="comments" rows="3" required></textarea> -->
                         </div>
 
