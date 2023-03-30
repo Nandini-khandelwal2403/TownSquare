@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/72a4d4b542.css" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../css/shareportal.css">
+    <link rel="stylesheet" href="../css/market.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/72a4d4b542.js" crossorigin="anonymous"></script> -->
+
+</head>
+
+<body>
+
+    <section class="sidebar" id="sidebar">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidemenu">
+            <div class="d-flex justify-content-between">
+                <div style="float: left;">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                        <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                    </a>
+                </div>
+                <button class="navbar-toggler toggle-icon-close" type="button" onclick="closeNav()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- <a href="javascript:void(0)" class="closebtn mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" onclick="closeNav()" style="float: right; font-size: 2rem; margin-top: -0.5rem;">&times;</a> -->
+            </div>
+            <hr>
+            <div class="d-flex flex-column align-items-center flex-shrink-0">
+                <div class="img-crop">
+                    <img src="../img/town.png" class="profile-pic">
+                </div>
+                <div class="profile-name">Gregory House</div>
+            </div>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Daily Items
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> Imp Personnel
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Food for all
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Vocal for Local
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Settings
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+    <main id="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto link-dark text-decoration-none">
+                            <img src="../img/ts-logo-3.png" alt="" width="40" height="40">
+                            <img src="../img/ts-name-1.png" alt="" height="43" class="ts-name">
+                        </a>
+                        <button class="navbar-toggler toggle-icon" type="button" onclick="openNav()">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            <div class="row gy-3 my-3 item-container">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                        </div>
+                    </div>
+
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2">
+                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
+                            </h6>
+                        </div>
+
+                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
+
+                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                        </div>
+                    </div>
+
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2">
+                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
+                            </h6>
+                        </div>
+
+                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
+
+                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                        </div>
+                    </div>
+
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2">
+                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
+                            </h6>
+                        </div>
+
+                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
+
+                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                        </div>
+                    </div>
+
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2">
+                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
+                            </h6>
+                        </div>
+
+                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
+
+                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                        </div>
+                    </div>
+
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2">
+                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
+                            </h6>
+                        </div>
+
+                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
+
+                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
+
+
+                    </div>
+                </div>
+
+
+
+                <template data-template="item-template">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card float-left">
+                            <div class="row card-row">
+                                <div class="col-xs-7 card-left">
+                                    <h5> <span class="card-title"></span> <span> • </span><span class="card-text item-quan"></span></h5>
+                                    <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="item-cost">50</span></i></p>
+                                    <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                                </div>
+                                <div class="col-xs-5 card-right">
+                                    <img class="d-block item-img" src="../img/flour.jpg" alt="">
+                                </div>
+                                <div data-itemid="1234">
+                                  <button type="button" class="btn btn-outline-primary request"><i class="fas fa-shopping-cart"></i> <span class="req_item_text">Request</span></button>       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </main>
+
+    <div class="fab-container">
+        <div class="fab shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="generateFakeData()">
+            <div class="fab-content">
+                <span class="material-icons">library_add</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Form Modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" onsubmit="return false">
+                        <div class="col-md-6">
+                            <label for="ItemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control form-item-name" id="ItemName" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="comments" class="form-label">Details-Description</label>
+                            <textarea class="form-control form-item-des" id="comments" rows="3" required></textarea>
+                        </div>
+
+                        <body>
+                            <section class="container">
+
+
+                                <div class="row form-group">
+                                    <label for="date" class="col-sm-1 col-form-label Exp-date ">ExpiryDate</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group date" id="datepicker">
+                                            <input type="text" class="form-control form-item-exp">
+                                            <span class="input-group-append">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </section>
+
+                            <script type="text/javascript">
+                                $(function() {
+                                    $('#datepicker').datepicker();
+                                });
+                            </script>
+
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Quantity</label>
+                                <input type="text" class="form-control form-item-quan" id="lastName" required>
+                            </div>
+
+
+                            <label class="form-label" for="customFile">Default file input example</label>
+                            <input type="file" class="form-control form-item-img" id="customFile" />
+
+                            <div class="col-md-12">
+                                <button type="submit" onclick="itemDetail()" class="btn btn-primary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal">
+        Launch demo modal
+    </button> -->
+
+
+    <!-- Item modal-->
+    <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true" style="z-index: 10000;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemModalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <img src="" alt="paracetamol" class="modal-item-img">
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h5> <span class="card-title modal-item-name">Flour</span> <span> • </span><span class="card-text modal-item-quan">1 pkt</span></h5>
+                        <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="modal-item-exp">50</span></i></p>
+                        <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="modal-item-des">34, M.K. Gandhi Marg, New Delhi</span></i></p>
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h6>Added by:</h6>
+                        <h7><span class="add-name"></span></h7>
+                        <h7><span class="add-mobile"></span></h7>
+                        <h7><span class="add-address"></span></h7>
+                    </div>
+
+                    <div class="row">
+                        <h7></h7><br>
+                        <h6 class="requested-by">Requested by:</h6>
+                        <h7><span class="req-name"></span></h7>
+                        <h7><span class="req-mobile"></span></h7>
+                        <h7><span class="req-address"></span></h7>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+        function openNav() {
+            document.getElementById("sidebar").style.width = "100vw";
+            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "100vw";
+        }
+
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script>
+        function setProfile() {
+            document.querySelector('.profile-pic').src = user.photoURL;
+            document.querySelector('.profile-name').innerHTML = userDetails.name;
+        }
+    </script>
+    <script type="module">
+        import { faker } from 'https://cdn.skypack.dev/@faker-js/faker'; window.faker = faker;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js " integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN " crossorigin="anonymous "></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="/dist/bundle.js"></script>
+    <script src="../js/market.js"></script>
+    </body>
+
+</html>
