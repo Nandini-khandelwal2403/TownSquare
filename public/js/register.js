@@ -13,8 +13,3 @@ function register() {
     console.log(name, number, address, genderValue, pincode)
     firebase.send(name, number, address, genderValue, pincode);
 }
-
-async function getFoodDetails() {
-    const foodDetails = await firebase.getFoodDetails();
-    console.log(foodDetails);
-}

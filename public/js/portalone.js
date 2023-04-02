@@ -32,7 +32,7 @@ function generateFakeData() {
     document.querySelector('.form-item-exp').value = formatDate(faker.date.future());
     document.querySelector('.form-item-quan').value = faker.random.numeric() * 100;
 
-    
+
 }
 
 function formatDate(date) {
@@ -41,9 +41,9 @@ function formatDate(date) {
         day = '' + d.getDate(),
         year = d.getFullYear();
 
-    if (month.length < 2) 
+    if (month.length < 2)
         month = '0' + month;
-    if (day.length < 2) 
+    if (day.length < 2)
         day = '0' + day;
 
     return [day, month, year].join('/');
@@ -122,12 +122,12 @@ async function getItemDetails() {
             document.querySelector('.add-name').innerHTML = itemObj.username;
             document.querySelector('.add-mobile').innerHTML = itemObj.number;
             document.querySelector('.add-address').innerHTML = itemObj.address;
-            if(itemObj.request_user_name){
+            if (itemObj.request_user_name) {
                 document.querySelector('.requested-by').innerHTML = 'Requested by:';
                 document.querySelector('.req-name').innerHTML = itemObj.request_user_name;
                 document.querySelector('.req-mobile').innerHTML = itemObj.request_user_number;
                 document.querySelector('.req-address').innerHTML = itemObj.request_user_address;
-            }else{
+            } else {
                 document.querySelector('.requested-by').innerHTML = '';
                 document.querySelector('.req-name').innerHTML = '';
                 document.querySelector('.req-mobile').innerHTML = '';

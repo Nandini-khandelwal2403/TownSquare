@@ -21,31 +21,6 @@ const storageRef = ref(storage);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// sign in with redirect
-
-// export const googleSignIn = () => {
-//     signInWithRedirect(auth, provider)
-//         .then((result) => {
-//             // This gives you a Google Access Token. You can use it to access the Google API.
-//             const credential = GoogleAuthProvider.credentialFromResult(result);
-//             const token = credential.accessToken;
-//             // The signed-in user info.
-//             const user = result.user;
-//             window.user = user;
-
-//             window.location.href = '/home';
-//             // ...
-//         }).catch((error) => {
-//             // Handle Errors here.
-//             const errorCode = error.code;
-//             const errorMessage = error.message;
-//             // The email of the user's account used.
-//             const email = error.customData.email;
-//             // The AuthCredential type that was used.
-//             const credential = GoogleAuthProvider.credentialFromError(error);
-//             // ...
-//         });
-// }
 
 export const googleSignIn = () => {
     signInWithPopup(auth, provider)
@@ -94,6 +69,8 @@ onAuthStateChanged(auth, async(user) => {
             getInfoDetails();
         } else if (window.location.pathname == '/foodforall') {
             getFoodDetails();
+        } else if (window.location.pathname == '/market') {
+            getMarketDetails();
         }
         setProfile();
         // ...
@@ -369,5 +346,68 @@ export const getFoodInfo = () => {
             console.log("Error getting documents: ", error);
             reject(error);
         });
+    });
+}
+
+// send market item to firestore database
+
+export const sendMarketItem = (itemName, itemDescription, itemQuantity, itemCost, itemImg) => {
+    const docRef = collection(db, "market");
+    addDoc(docRef, {
+        itemName: itemName,
+        itemPrice: itemCost,
+        itemQuantity: itemQuantity,
+        itemDescription: itemDescription,
+        image: itemImg,
+        sellername: userDetails.name,
+        selleruid: user.uid,
+        selleraddress: userDetails.address,
+        sellernumber: userDetails.number,
+    }).then((item) => {
+        console.log("Document written with ID: ", item.id);
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
+// get all market items from firestore database
+
+export const getMarketItems = () => {
+    return new Promise((resolve, reject) => {
+        const docRef = collection(db, "market");
+        getDocs(docRef).then((querySnapshot) => {
+            let items = [];
+            querySnapshot.forEach((doc) => {
+                let obj = doc.data();
+                obj.id = doc.id;
+                items.push(obj);
+            });
+            resolve(items);
+        }).catch((error) => {
+            console.log("Error getting documents: ", error);
+            reject(error);
+        });
+    });
+}
+
+// request market item from firestore database
+
+export const requestMarketItem = async(itemid) => {
+    console.log(itemid);
+    const docRef = doc(db, "market", itemid);
+    console.log(docRef);
+    await updateDoc(docRef, {
+        request_uid: user.uid,
+        request_user_name: userDetails.name,
+        request_user_number: userDetails.number,
+        request_user_address: userDetails.address
+    }).then(() => {
+        console.log("Document successfully updated!");
+
+        // send notification to the user who posted the item
+        // notifyUser(itemid);
+    }).catch((error) => {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
     });
 }

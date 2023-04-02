@@ -112,108 +112,25 @@
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
-                            </h6>
-                        </div>
-
-                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
-
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
-                            </h6>
-                        </div>
-
-                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
-
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
-                            </h6>
-                        </div>
-
-                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
-
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-img-actions">
-                            <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
-                        </div>
-                    </div>
-
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">Designer Jute Bag</a>
-                            </h6>
-                        </div>
-
-                        <h3 class="mb-2 font-weight-semibold">Rs. 150</h3>
-
-                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Request</button>
-
-
-                    </div>
-                </div>
-
-
 
                 <template data-template="item-template">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card float-left">
-                            <div class="row card-row">
-                                <div class="col-xs-7 card-left">
-                                    <h5> <span class="card-title"></span> <span> • </span><span class="card-text item-quan"></span></h5>
-                                    <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="item-cost">50</span></i></p>
-                                    <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="item-addr">34, M.K. Gandhi Marg, New Delhi</span></i></p>
-                                </div>
-                                <div class="col-xs-5 card-right">
-                                    <img class="d-block item-img" src="../img/flour.jpg" alt="">
-                                </div>
-                                <div data-itemid="1234">
-                                  <button type="button" class="btn btn-outline-primary request"><i class="fas fa-shopping-cart"></i> <span class="req_item_text">Request</span></button>       
-                                </div>
+                    <div class="card" data-itemid="1234">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                <img src="../img/jutebag.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                            </div>
+                        </div>
+    
+                        <div class="card-body bg-light text-center">
+                            <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2">
+                                    <a href="#" class="text-default mb-2 item-name" data-abc="true">Designer Jute Bag</a>
+                                </h6>
+                            </div>
+    
+                            <h3 class="mb-2 font-weight-semibold item-cost">Rs. 150</h3>
+                            <div>
+                                <button type="button" class="btn bg-cart request"><i class="fa fa-cart-plus mr-2"></i> Request</button>
                             </div>
                         </div>
                     </div>
@@ -223,7 +140,7 @@
     </main>
 
     <div class="fab-container">
-        <div class="fab shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="generateFakeData()">
+        <div class="fab shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="fab-content">
                 <span class="material-icons">library_add</span>
             </div>
@@ -254,40 +171,18 @@
                         </div>
 
                         <body>
-                            <section class="container">
-
-
-                                <div class="row form-group">
-                                    <label for="date" class="col-sm-1 col-form-label Exp-date ">ExpiryDate</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group date" id="datepicker">
-                                            <input type="text" class="form-control form-item-exp">
-                                            <span class="input-group-append">
-                                        <span class="input-group-text bg-white">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </section>
-
-                            <script type="text/javascript">
-                                $(function() {
-                                    $('#datepicker').datepicker();
-                                });
-                            </script>
+                            <div class="col-md-6">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="text" class="form-control form-item-quan" id="quantity" required>
+                            </div>
 
                             <div class="col-md-6">
-                                <label for="lastName" class="form-label">Quantity</label>
-                                <input type="text" class="form-control form-item-quan" id="lastName" required>
+                                <label for="cost" class="form-label">Cost</label>
+                                <input type="text" class="form-control form-item-cost" id="cost" required>
                             </div>
 
 
-                            <label class="form-label" for="customFile">Default file input example</label>
+                            <label class="form-label" for="customFile">Image</label>
                             <input type="file" class="form-control form-item-img" id="customFile" />
 
                             <div class="col-md-12">
@@ -322,7 +217,7 @@
                     <div class="row">
                         <h7></h7><br>
                         <h5> <span class="card-title modal-item-name">Flour</span> <span> • </span><span class="card-text modal-item-quan">1 pkt</span></h5>
-                        <p class="card-details"><i class="far fa-calendar-times">&nbsp;<span class="modal-item-exp">50</span></i></p>
+                        <p class="card-details"><i class="fas fa-rupee-sign">&nbsp;<span class="modal-item-cost">50</span></i></p>
                         <p class="card-details"><i class="fas fa-info-circle">&nbsp;<span class="modal-item-des">34, M.K. Gandhi Marg, New Delhi</span></i></p>
                     </div>
 

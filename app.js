@@ -52,6 +52,10 @@ app.get('/infoportal', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/infoportal.html'));
 });
 
+app.get('/marketportal', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/market.html'));
+});
+
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/login.html'));
 });
