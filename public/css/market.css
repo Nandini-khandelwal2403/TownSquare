@@ -12,6 +12,7 @@
     border-radius: .1875rem;
     width: 46%;
     margin: 2% 2%;
+    padding: 0;
 }
 
 .card-img-actions {
@@ -21,7 +22,7 @@
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem;
+    /* padding: 1.25rem; */
     text-align: center;
 }
 

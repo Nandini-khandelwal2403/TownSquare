@@ -17,13 +17,37 @@ async function getMarketDetails() {
     console.log(marketItems);
     marketItems.forEach((item, index) => {
         console.log(item.id, index);
+        if (item.request_uid && item.request_uid != userDetails.uid && item.uid != userDetails.uid) {
+            return;
+        }
 
         const template = document.querySelector('template[data-template="item-template"]')
         let clone = template.content.cloneNode(true);
+        if (item.selleruid == userDetails.uid) {
+            if (item.request_uid) {
+                clone.querySelector('.req_item_text').innerHTML = 'Requested';
+                clone.querySelector('.request').classList.remove('btn-outline-primary');
+                clone.querySelector('.request').classList.add('btn-success');
+                clone.querySelector('.request').disabled = true;
+            } else {
+                clone.querySelector('.req_item_text').innerHTML = 'Not Requested';
+                clone.querySelector('.request').classList.remove('btn-outline-primary');
+                clone.querySelector('.request').classList.add('btn-outline-success');
+                clone.querySelector('.request').disabled = true;
+            }
+        }
         clone.querySelector('.card').dataset.itemid = item.id;
+        clone.querySelector('.item-img').src = item.image;
         clone.querySelector('.item-name').innerHTML = item.itemName;
         clone.querySelector('.item-cost').innerHTML = "Rs. " + item.itemPrice;
         clone.querySelector('.request').dataset.itemid = item.id;
+
+        if (item.request_uid == userDetails.uid) {
+            clone.querySelector('.request').classList.remove('btn-outline-primary');
+            clone.querySelector('.request').classList.add('btn-primary');
+            clone.querySelector('.request').disabled = true;
+            clone.querySelector('.req_item_text').innerHTML = 'Requested';
+        }
 
         document.querySelector('.item-container').appendChild(clone);
     });
@@ -49,7 +73,7 @@ async function getMarketDetails() {
             });
             console.log(itemObj);
             // update the modal with item details
-            // document.querySelector('.modal-item-img').src = itemObj.image;
+            document.querySelector('.modal-item-img').src = itemObj.image;
             document.querySelector('.modal-item-name').innerHTML = itemObj.itemName;
             document.querySelector('.modal-item-cost').innerHTML = itemObj.itemPrice;
             document.querySelector('.modal-item-quan').innerHTML = itemObj.itemQuantity;
@@ -57,18 +81,18 @@ async function getMarketDetails() {
             document.querySelector('.add-name').innerHTML = itemObj.sellername;
             document.querySelector('.add-mobile').innerHTML = itemObj.sellernumber;
             document.querySelector('.add-address').innerHTML = itemObj.selleraddress;
-            // if (itemObj.request_user_name) {
-            //     document.querySelector('.requested-by').innerHTML = 'Requested by:';
-            //     document.querySelector('.req-name').innerHTML = itemObj.request_user_name;
-            //     document.querySelector('.req-mobile').innerHTML = itemObj.request_user_number;
-            //     document.querySelector('.req-address').innerHTML = itemObj.request_user_address;
-            // } else {
-            //     document.querySelector('.requested-by').innerHTML = '';
-            //     document.querySelector('.req-name').innerHTML = '';
-            //     document.querySelector('.req-mobile').innerHTML = '';
-            //     // document.querySelector('req-email').innerHTML = '';
-            //     document.querySelector('.req-address').innerHTML = '';
-            // }
+            if (itemObj.request_user_name) {
+                document.querySelector('.requested-by').innerHTML = 'Requested by:';
+                document.querySelector('.req-name').innerHTML = itemObj.request_user_name;
+                document.querySelector('.req-mobile').innerHTML = itemObj.request_user_number;
+                document.querySelector('.req-address').innerHTML = itemObj.request_user_address;
+            } else {
+                document.querySelector('.requested-by').innerHTML = '';
+                document.querySelector('.req-name').innerHTML = '';
+                document.querySelector('.req-mobile').innerHTML = '';
+                // document.querySelector('req-email').innerHTML = '';
+                document.querySelector('.req-address').innerHTML = '';
+            }
             // show itemModal
             openModal('itemModal');
         });
