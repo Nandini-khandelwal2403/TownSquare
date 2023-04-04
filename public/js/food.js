@@ -7,6 +7,7 @@ function foodDetails() {
     if (type) type = "veg";
     else type = "non-veg";
     console.log(orgName, quantity, time, address, type);
+    $('#exampleModal').modal('hide');
     firebase.sendFoodInfo(orgName, quantity, time, address, type);
 }
 
