@@ -17,7 +17,7 @@ async function getMarketDetails() {
     console.log(marketItems);
     marketItems.forEach((item, index) => {
         console.log(item.id, index);
-        if (item.request_uid && item.request_uid != userDetails.uid && item.uid != userDetails.uid) {
+        if (item.request_uid && item.request_uid != userDetails.uid && item.selleruid != userDetails.uid) {
             return;
         }
 
