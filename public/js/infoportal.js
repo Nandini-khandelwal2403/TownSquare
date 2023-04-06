@@ -34,7 +34,7 @@ function generateFakeData() {
 //     generateFakeData();
 // }, 1000);
 
-let imgflag = true;
+let imgflag = false;
 
 document.querySelector('.form-person-img').addEventListener('change', (e) => {
     imgflag = false;

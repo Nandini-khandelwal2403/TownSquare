@@ -19,7 +19,7 @@ async function itemDetail() {
     firebase.sendItems(item_name, item_des, item_exp, item_quan, downloadImageURL);
 }
 
-let imgflag = true;
+let imgflag = false;
 
 document.querySelector('.form-item-img').addEventListener('change', (e) => {
     imgflag = false;
