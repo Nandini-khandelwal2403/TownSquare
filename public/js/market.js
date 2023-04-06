@@ -59,8 +59,10 @@ async function getMarketDetails() {
             console.log(item.dataset.itemid);
             requestItem(item.dataset.itemid);
             // remove btn-outline-primary class from the button and add btn-primary class
-            // item.classList.remove('btn-outline-primary');
-            // item.classList.add('btn-primary');
+            item.classList.remove('btn-outline-primary');
+            item.classList.add('btn-primary');
+            item.disabled = true;
+            item.querySelector('.req_item_text').innerHTML = 'Requested';
         });
     });
 
