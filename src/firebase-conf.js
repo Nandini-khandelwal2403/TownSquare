@@ -133,6 +133,7 @@ export const sendItems = (name, description, expiry, quantity, image) => {
         pincode: userDetails.pincode,
     }).then((item) => {
         console.log("Document written with ID: ", item.id); // refer documentation....tab hi roton jaisa soch paaoge
+        window.location.reload();
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
@@ -289,6 +290,7 @@ export const sendInfo = (person_name, occupation, person_number, person_address,
         person_fees: person_fees,
     }).then((item) => {
         console.log("Document written with ID: ", item.id);
+        window.location.reload();
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
@@ -326,6 +328,7 @@ export const sendFoodInfo = (orgName, quantity, time, address, type) => {
         type: type,
     }).then((food) => {
         console.log("Document written with ID: ", food.id);
+        window.location.reload();
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
@@ -365,6 +368,7 @@ export const sendMarketItem = (itemName, itemDescription, itemQuantity, itemCost
         sellernumber: userDetails.number,
     }).then((item) => {
         console.log("Document written with ID: ", item.id);
+        window.location.reload();
     }).catch((error) => {
         console.error("Error adding document: ", error);
     });
