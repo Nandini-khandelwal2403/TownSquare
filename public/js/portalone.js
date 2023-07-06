@@ -13,7 +13,7 @@ async function itemDetail() {
     if (imgflag) {
         downloadImageURL = "https://firebasestorage.googleapis.com/v0/b/townsquare-e2578.appspot.com/o/images%2F0aaebdcb-57c9-452a-9c75-dd77b5c46f21?alt=media&token=307e9bfe-ee41-4ecb-be84-1235fb5a11a8";
     } else {
-        downloadImageURL = await firebase.uploadImage(item_img);
+        downloadImageURL = await firebase.uploadImage(item_img); //link
     }
     // const downloadImageURL = await firebase.uploadImage(item_img);
     firebase.sendItems(item_name, item_des, item_exp, item_quan, downloadImageURL);
